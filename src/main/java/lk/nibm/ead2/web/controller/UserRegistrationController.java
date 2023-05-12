@@ -25,7 +25,7 @@ IUserService service;
     {
         service.save(user);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
+        modelAndView.setViewName("login");
         modelAndView.addObject("user", user);
         return modelAndView;
     }

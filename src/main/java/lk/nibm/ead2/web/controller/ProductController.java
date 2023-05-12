@@ -16,6 +16,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @RequestMapping("home")
+    public String showHome(){
+        return "home";
+    }
+
     @GetMapping("/product")
     public String showProductPage(Model model) {
         List<Product> listProduct = productService.listAll();
@@ -48,6 +53,6 @@ public class ProductController {
     @RequestMapping("/deletes/{id}")
     public String deleteProduct(@PathVariable(name = "id") Long id){
         productService.deleteProducts(id);
-        return "redirect:Admin";
+        return "home";
     }
 }
