@@ -27,17 +27,17 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-        <h1 class="logo me-auto me-lg-0"><a href="#">Pizza Creed</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a th:href="@{'/home'}"  style="text-decoration: none;">Pizza Creed</a></h1>
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul></ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-        <a th:href="@{'/home'}"  class="book-a-table-btn scrollto d-none d-lg-flex">Home</a>
+        <a th:href="@{'/home'}"  class="book-a-table-btn scrollto d-none d-lg-flex" style="text-decoration: none;">Home</a>
     </div>
 </header>
 
 <div class="container-fluid" style="width: auto;margin:150px 500px 0 200px;border: 1px solid black">
-    <h1 style="text-align: center;">Create New Product</h1>
+    <h1 style="text-align: center;">Add New Pizza Product</h1>
     <br/>
     <div class="container mt-5">
         <form  class="row g-3 needs-validation" action="#" th:action="@{/saves}" th:object="${product}" method="post">

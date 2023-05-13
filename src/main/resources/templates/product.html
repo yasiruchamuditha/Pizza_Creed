@@ -28,7 +28,7 @@
 <!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-        <h1 class="logo me-auto me-lg-0"><a href="#">Pizza Creed</a></h1>
+        <h1 class="logo me-auto me-lg-0"><a th:href="@{'/home'}" style="text-decoration: none;">Pizza Creed</a></h1>
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul></ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -40,19 +40,19 @@
 <div style="margin-top: 100px;margin-bottom:400px;">
     <h1 style="align:center;">Admin Product Management Panel</h1>
         <div style="boader:1px solid black">
-            <h3>Add New Product<button style="margin:50px 100px 0 100px;"><a th:href="@{'/new_product'}">Click Here</a></button></h3>
+            <h3>Add New Product<button style="margin:50px 100px 0 100px;"><a th:href="@{'/new_product'}" style="  text-decoration: none;">Click Here</a></button></h3>
         </div>
     <tr>
         <div class="col-sm-5" align = "center" style="margin:100px 100px 0 100px;">
             <div class="panel-body" align = "center" >
-                <table style="margin:0 150px 0 100px;" class="table table-hover">
-                    <thead class="thead-dark">
+                <table style="margin:0 150px 0 100px;" class="table table-hover ">
+                    <thead class="table-dark">
                     <tr style="background-color:#0d6efd;">
                         <th style="padding:0 50px 0 50px;" >ID</th>
                         <th style="padding:0 50px 0 30px;"> Name</th>
                         <th style="padding:0 50px 0 50px;">Size</th>
                         <th style="padding:0 50px 0 50px;">Price</th>
-                        <th style="padding:0 50px 0 50px; color:black;">EDIT</th>
+                        <th style="padding:0 50px 0 50px; ">EDIT</th>
                         <th style="padding:0 50px 0 50px;">DELETE</th>
                     </tr>
                     </thead>
@@ -63,10 +63,10 @@
                         <td th:text="${product.Size}">Size</td>
                         <td th:text="${product.Price}">Price</td>
                         <td>
-                            <a th:href="@{'/edits/' + ${product.id}}">Edit</a>
+                            <a th:href="@{'/edits/' + ${product.id}}" style="color:Black;">Edit</a>
                         </td>
                         <td>
-                            <a th:href="@{'/deletes/' + ${product.id}}">Delete</a>
+                            <a th:href="@{'/deletes/' + ${product.id}}" style="color:Black;">Delete</a>
                         </td>
                     </tr>
                     </tbody>
@@ -87,7 +87,7 @@
 </footer><!-- End Footer -->
 <div id="preloader"></div>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<!-- Template Main JS File -->
+<!-- Main JS File -->
 <script th:src="@{/js/main.js}"></script>
 </body>
 </html>

@@ -4,7 +4,6 @@ import lk.nibm.ead2.web.model.Product;
 import lk.nibm.ead2.web.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

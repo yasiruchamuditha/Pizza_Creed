@@ -19,6 +19,11 @@ public class BasketItem {
     @ManyToOne
     private Basket basket;
 
+    public BasketItem() {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
     public Long getId() {
         return id;
     }
