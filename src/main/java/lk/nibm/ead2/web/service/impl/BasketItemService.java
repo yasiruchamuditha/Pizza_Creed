@@ -1,41 +1,67 @@
 package lk.nibm.ead2.web.service.impl;
 
 import lk.nibm.ead2.web.model.BasketItem;
+import lk.nibm.ead2.web.repository.BasketItemRepository;
+import lk.nibm.ead2.web.repository.ProductRepository;
+import lk.nibm.ead2.web.service.IBasketItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class BasketItemService {
+public class BasketItemService implements IBasketItemService {
 
-    private List<BasketItem> items = new ArrayList<>();
+    public Double cost = 0.0;
 
-    public List<BasketItem> getItems() {
-        return items;
+    @Autowired
+    private BasketItemRepository basketItemRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    //method for save new Basket Item
+    @Override
+    public String saveBasket(BasketItem basketItem) {
+        basketItemRepository.save(basketItem);
+        return "New Basket Item Added";
     }
 
-    public void setItems(List<BasketItem> items) {
-        this.items = items;
+    //method for get all basket Items
+    @Override
+    public List<BasketItem> getAllBaskets() {
+        return basketItemRepository.findAll();
     }
 
-    public void clear() {
-        items.clear();
+    //method for cost zero
+    @Override
+    public void clearCart() {
+        cost=0.0;
     }
 
-    public BasketItem addItem(BasketItem item) {
-        return item;
-    }
-
-    public void removeItem(int index) {
-        items.remove(index);
-    }
-
-    public double getTotal() {
-        double total = 0;
-        for (BasketItem item : items) {
-            total += item.getQuantity() * item.getProduct().getPrice();
+    //delete basket Items by Id
+    @Override
+    public boolean deleteBasketById(Long basketId) {
+        Optional<BasketItem> basketOptional = basketItemRepository.findById(basketId);
+        if (basketOptional.isPresent()) {
+            BasketItem basket = basketOptional.get();
+            basketItemRepository.delete(basket);
+            return true;
         }
-        return total;
+        return false;
     }
+
+    //delete all basket Items (clear cart)
+    @Override
+    public boolean deleteAllBasketItems() {
+        try {
+            basketItemRepository.deleteAll();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 }

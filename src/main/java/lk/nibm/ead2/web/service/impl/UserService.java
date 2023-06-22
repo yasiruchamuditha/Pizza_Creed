@@ -14,11 +14,13 @@ public class UserService implements IUserService {
     @Autowired
     private UserRepository userRepository;
 
+    //method for find user by username
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    //method for save user
     @Override
     public User save(User user) {
       User dao = null;

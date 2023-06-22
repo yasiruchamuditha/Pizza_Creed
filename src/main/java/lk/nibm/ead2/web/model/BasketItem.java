@@ -11,18 +11,13 @@ public class BasketItem {
     private Long id;
 
     @Column(name = "Quantity")
-    private Long quantity;
+    private Long Quantity;
 
-    @ManyToOne
-    private Product product;
+    @Column(name = "Product_ID")
+    private Long Product_ID;
 
     @ManyToOne
     private Basket basket;
-
-    public BasketItem() {
-        this.product = product;
-        this.quantity = quantity;
-    }
 
     public Long getId() {
         return id;
@@ -33,19 +28,19 @@ public class BasketItem {
     }
 
     public Long getQuantity() {
-        return quantity;
+        return Quantity;
     }
 
     public void setQuantity(Long quantity) {
-        this.quantity = quantity;
+        Quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
+    public Long getProduct_ID() {
+        return Product_ID;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct_ID(Long product_ID) {
+        Product_ID = product_ID;
     }
 
     public Basket getBasket() {

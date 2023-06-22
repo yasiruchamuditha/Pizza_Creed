@@ -16,11 +16,13 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    //request for load home page
     @RequestMapping("home")
     public String showHome(){
         return "home";
     }
 
+    //GUI Table request for list all products
     @GetMapping("/product")
     public String showProductPage(Model model) {
         List<Product> listProduct = productService.listAll();
@@ -29,6 +31,7 @@ public class ProductController {
         return "product";
     }
 
+    //GUI Table request for load new_product page
     @GetMapping("/new_product")
     public String add(Model model)
     {
@@ -36,12 +39,14 @@ public class ProductController {
         return "new_product";
     }
 
+    //GUI Table request for save new product
     @RequestMapping(value = "/saves", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("product") Product std){
         productService.saveProducts(std);
         return "redirect:product";
     }
 
+    //GUI Table method for update/edit products
     @RequestMapping("/edits/{id}")
     public ModelAndView showEditPage(@PathVariable(name = "id") Long id){
         ModelAndView mav = new ModelAndView("new_product");
@@ -50,6 +55,7 @@ public class ProductController {
         return mav;
     }
 
+    //GUI Table method for delete products
     @RequestMapping("/deletes/{id}")
     public String deleteProduct(@PathVariable(name = "id") Long id){
         productService.deleteProducts(id);

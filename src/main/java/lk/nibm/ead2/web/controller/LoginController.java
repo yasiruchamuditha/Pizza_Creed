@@ -15,11 +15,13 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    //load index page
     @GetMapping("/")
     public String showLogin(){
         return "login";
     }
 
+    //request for login form
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model)
     {

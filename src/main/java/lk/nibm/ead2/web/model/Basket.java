@@ -2,6 +2,7 @@ package lk.nibm.ead2.web.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,12 +12,8 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "ID")
     private String id;
-
     @OneToMany(mappedBy = "basket")
     private List<BasketItem> basketItems;
-
-    @OneToMany(mappedBy = "basket")
-    private List<Order> orders;
 
 
     public String getId() {
@@ -33,14 +30,6 @@ public class Basket {
 
     public void setBasketItems(List<BasketItem> basketItems) {
         this.basketItems = basketItems;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
     }
 
 }

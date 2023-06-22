@@ -13,9 +13,6 @@ public class Product {
     @Column(name = "ID")
     private Long id;
 
-    @OneToMany(mappedBy = "product")
-    private List<BasketItem> basketItems;
-
     @Column(name = "Name")
     private @NotBlank String Name;
 
@@ -57,12 +54,5 @@ public class Product {
         Price = price;
     }
 
-    public List<BasketItem> getBasketItems() {
-        return basketItems;
-    }
-
-    public void setBasketItems(List<BasketItem> basketItems) {
-        this.basketItems = basketItems;
-    }
 
 }

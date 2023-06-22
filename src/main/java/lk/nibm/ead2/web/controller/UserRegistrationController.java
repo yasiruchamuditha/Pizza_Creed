@@ -15,11 +15,14 @@ public class UserRegistrationController {
 @Autowired
 IUserService service;
 
+   //request for load registration page
     @GetMapping("/Registration")
     public String showRegistration(){
         return "Registration";
     }
 
+
+    //request for registration form
     @RequestMapping(value="/register", method= RequestMethod.POST)
     public ModelAndView save(@ModelAttribute User user)
     {

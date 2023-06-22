@@ -17,6 +17,7 @@ public class ProductService implements IProductService {
     @Autowired
     ProductRepository productRepository;
 
+    //method for rest controller for save products
     @Override
     public Product save(Product product) {
         Product dto = null;
@@ -34,6 +35,7 @@ public class ProductService implements IProductService {
         return product;
     }
 
+    //method for rest controller for find all products
     @Override
     public List<Product> findAll() {
         List<Product> products = productRepository.findAll();
@@ -44,7 +46,7 @@ public class ProductService implements IProductService {
         }).collect(Collectors.toList());
     }
 
-
+   //method for rest controller for find products by id
     @Override
     public Product find(Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
@@ -56,6 +58,7 @@ public class ProductService implements IProductService {
         return null;
     }
 
+    //method for rest controller for delete product
     @Override
     public boolean delete(Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
@@ -67,18 +70,22 @@ public class ProductService implements IProductService {
         return Boolean.TRUE;
     }
 
+    //method for list all products in GUI Table
     public List<Product> listAll() {
         return  productRepository.findAll();
     }
 
+    //method for get product by id in GUI Table
     public Product get(long id) {
         return productRepository.findById(id).get();
     }
 
+    //method for delete products in GUI Table
     public void deleteProducts(long id) {
         productRepository.deleteById(id);
     }
 
+    //method for save product in GUI Table
     public void saveProducts(Product std) {
         productRepository.save(std);
     }
