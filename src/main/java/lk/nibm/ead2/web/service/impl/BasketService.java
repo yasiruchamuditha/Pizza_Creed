@@ -6,9 +6,11 @@ import lk.nibm.ead2.web.repository.BasketRepository;
 import lk.nibm.ead2.web.service.IBasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
+/**
+ * @author Yasiru
+ * contact me : https://linktr.ee/yasiruchamuditha for more information.
+ */
 @Service
 public class BasketService implements IBasketService {
     @Autowired

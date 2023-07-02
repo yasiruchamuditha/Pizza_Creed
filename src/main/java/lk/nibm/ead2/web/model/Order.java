@@ -1,7 +1,10 @@
 package lk.nibm.ead2.web.model;
 
 import jakarta.persistence.*;
-
+/**
+ * @author Yasiru
+ * contact me : https://linktr.ee/yasiruchamuditha for more information.
+ */
 @Entity
 @Table(name = "Order")
 public class Order {

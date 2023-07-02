@@ -3,7 +3,10 @@ package lk.nibm.ead2.web.service;
 import lk.nibm.ead2.web.model.BasketItem;
 
 import java.util.List;
-
+/**
+ * @author Yasiru
+ * contact me : https://linktr.ee/yasiruchamuditha for more information.
+ */
 public interface IBasketItemService {
 
     //List<BasketItem> findAll();

@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;
-
+/**
+ * @author Yasiru
+ * contact me : https://linktr.ee/yasiruchamuditha for more information.
+ */
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
